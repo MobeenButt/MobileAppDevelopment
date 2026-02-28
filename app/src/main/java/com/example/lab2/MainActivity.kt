@@ -1,21 +1,42 @@
 package com.example.lab2
 
+import android.content.Intent
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
+import android.widget.ArrayAdapter
+import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
 
-        setContentView(R.layout.activity_main)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+        val listView = ListView(this)
+        setContentView(listView)
+
+        val screenNames = arrayOf(
+            "Login Screen",
+            "Register Screen",
+            "BMI Calculator",
+            "Calculator",
+            "Welcome Screen"
+        )
+
+        @Suppress("UNCHECKED_CAST")
+        val classes = arrayOf(
+            LoginActivity::class.java,
+            RegisterActivity::class.java,
+            BmiInputActivity::class.java,
+            Calculator::class.java,
+            Welcome::class.java
+        )
+
+        val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, screenNames)
+        listView.adapter = adapter
+
+        listView.setOnItemClickListener { _, _, position, _ ->
+            val intent = Intent(this, classes[position])
+            startActivity(intent)
         }
     }
 }
+

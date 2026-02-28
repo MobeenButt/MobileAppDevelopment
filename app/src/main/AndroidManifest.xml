@@ -12,14 +12,32 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Lab2" >
         <activity
-            android:name=".MainActivity"
-            android:exported="true" >
+            android:name=".BmiResultActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BmiInputActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Welcome"
+            android:exported="false" />
+        <activity
+            android:exported="true"
+            android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:exported="false"
+            android:name=".LoginActivity" />
+        <activity
+            android:name=".Calculator"
+            android:exported="false" />
     </application>
 
 </manifest>

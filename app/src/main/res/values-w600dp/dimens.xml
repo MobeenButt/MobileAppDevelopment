@@ -1,0 +1,26 @@
+<resources>
+    <dimen name="fab_margin">48dp</dimen>
+
+    <!-- BMI screen layout — tablet 600dp+ -->
+    <dimen name="bmi_screen_padding">32dp</dimen>
+    <dimen name="bmi_content_margin_horizontal">48dp</dimen>
+    <dimen name="bmi_header_margin_top">40dp</dimen>
+    <dimen name="bmi_card_margin_top">28dp</dimen>
+    <dimen name="bmi_card_padding">28dp</dimen>
+    <dimen name="bmi_field_spacing">18dp</dimen>
+    <dimen name="bmi_button_margin_top">32dp</dimen>
+    <dimen name="bmi_button_height">56dp</dimen>
+
+    <!-- BMI text sizes -->
+    <dimen name="bmi_title_text_size">32sp</dimen>
+    <dimen name="bmi_subtitle_text_size">16sp</dimen>
+    <dimen name="bmi_label_text_size">16sp</dimen>
+    <dimen name="bmi_value_text_size">16sp</dimen>
+    <dimen name="bmi_section_title_text_size">17sp</dimen>
+    <dimen name="bmi_result_value_text_size">72sp</dimen>
+    <dimen name="bmi_result_category_text_size">28sp</dimen>
+    <dimen name="bmi_result_desc_text_size">15sp</dimen>
+    <dimen name="bmi_button_text_size">18sp</dimen>
+    <dimen name="bmi_input_text_size">18sp</dimen>
+    <dimen name="bmi_card_corner_radius">18dp</dimen>
+</resources>
