@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Myproj1</string>
+    <string name="hint_enter_price">Enter Price</string>
+    <string name="btn_calculate_discount">Calculate Discount</string>
+    <string name="discount_amount">Discount (20%%): Rs %s</string>
+    <string name="final_price">Final Price: Rs %s</string>
+    <string name="error_empty_price">Please enter a price</string>
+</resources>
