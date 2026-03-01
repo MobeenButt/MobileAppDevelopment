@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Even darker mode for AMOLED screens with intensified neon -->
+    <color name="deep_navy">#000000</color>
+    <color name="midnight_blue">#0D1117</color>
+    <color name="slate_gray">#161B22</color>
+    <color name="electric_cyan">#00FFFF</color>
+    <color name="neon_cyan">#00E5FF</color>
+    <color name="soft_cyan">#66FFFF</color>
+    <color name="accent_amber">#FFC107</color>
+    <color name="warm_coral">#FF5252</color>
+    <color name="mint_green">#00FFB3</color>
+    <color name="ice_blue">#E8F4F8</color>
+    <color name="frost_white">#FFFFFF</color>
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#C9D1D9</color>
+    <color name="text_tertiary">#8B949E</color>
+
+    <!-- BMI Category colors with higher saturation -->
+    <color name="bmi_underweight">#00E5FF</color>
+    <color name="bmi_normal">#00FFB3</color>
+    <color name="bmi_overweight">#FFC107</color>
+    <color name="bmi_obese">#FF5252</color>
+</resources>
+

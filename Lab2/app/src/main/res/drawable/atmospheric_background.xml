@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Base gradient background -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="135"
+                android:startColor="#0A0E27"
+                android:centerColor="#0D1020"
+                android:endColor="#141B3D"
+                android:type="linear"/>
+        </shape>
+    </item>
+
+    <!-- Subtle radial accent from top -->
+    <item android:top="-200dp" android:left="-100dp" android:right="-100dp">
+        <shape android:shape="oval">
+            <gradient
+                android:type="radial"
+                android:gradientRadius="400dp"
+                android:startColor="#1A00F5FF"
+                android:centerColor="#0D00F5FF"
+                android:endColor="#00000000"/>
+        </shape>
+    </item>
+
+    <!-- Bottom corner glow -->
+    <item android:bottom="-300dp" android:right="-200dp">
+        <shape android:shape="oval">
+            <gradient
+                android:type="radial"
+                android:gradientRadius="350dp"
+                android:startColor="#1AFFB800"
+                android:endColor="#00000000"/>
+        </shape>
+    </item>
+</layer-list>
+

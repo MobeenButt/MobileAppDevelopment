@@ -1,8 +1,30 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
+    <!-- Base application theme with dark cyberpunk aesthetic -->
     <style name="Base.Theme.Lab2" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <!-- Primary brand color (Electric Cyan) -->
+        <item name="colorPrimary">@color/electric_cyan</item>
+        <item name="colorPrimaryVariant">@color/neon_cyan</item>
+        <item name="colorOnPrimary">@color/deep_navy</item>
+
+        <!-- Secondary brand color (Amber) -->
+        <item name="colorSecondary">@color/accent_amber</item>
+        <item name="colorSecondaryVariant">@color/warm_coral</item>
+        <item name="colorOnSecondary">@color/deep_navy</item>
+
+        <!-- Background colors -->
+        <item name="android:colorBackground">@color/deep_navy</item>
+        <item name="colorSurface">@color/midnight_blue</item>
+        <item name="colorOnBackground">@color/text_primary</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+
+        <!-- Status bar -->
+        <item name="android:statusBarColor">@color/deep_navy</item>
+        <item name="android:navigationBarColor">@color/deep_navy</item>
+        <item name="android:windowLightStatusBar">false</item>
+
+        <!-- Text appearance -->
+        <item name="android:textColorPrimary">@color/text_primary</item>
+        <item name="android:textColorSecondary">@color/text_secondary</item>
     </style>
 
     <style name="Theme.Lab2" parent="Base.Theme.Lab2" />

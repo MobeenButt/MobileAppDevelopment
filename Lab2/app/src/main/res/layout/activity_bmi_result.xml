@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    android:background="@android:color/white">
+    android:background="@drawable/atmospheric_background">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -30,35 +30,44 @@
             android:orientation="vertical"
             app:layout_constraintGuide_end="@dimen/bmi_content_margin_horizontal"/>
 
-        <!-- Header Icon -->
+        <!-- Decorative accent line -->
+        <View
+            android:id="@+id/accentLine"
+            android:layout_width="80dp"
+            android:layout_height="4dp"
+            android:background="@color/accent_amber"
+            android:alpha="0.8"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="@id/guideLeft"
+            app:layout_constraintEnd_toEndOf="@id/guideRight"
+            android:layout_marginTop="20dp"/>
 
         <!-- Header Title -->
-
-        <!-- User Details Card -->
-
         <TextView
             android:id="@+id/tvResultTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-medium"
-            android:text="Your BMI Result"
+            android:fontFamily="monospace"
+            android:text="ANALYSIS COMPLETE"
             android:textAlignment="center"
-            android:textColor="#1A237E"
+            android:textColor="@color/text_primary"
             android:textSize="@dimen/bmi_title_text_size"
             android:textStyle="bold"
+            android:letterSpacing="0.12"
+            android:layout_marginTop="16dp"
             app:layout_constraintEnd_toEndOf="@id/guideRight"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@id/guideLeft"
-            tools:layout_editor_absoluteY="20dp" />
+            app:layout_constraintTop_toBottomOf="@id/accentLine" />
 
+        <!-- User Details Card -->
         <androidx.cardview.widget.CardView
             android:id="@+id/cardUserDetails"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/bmi_card_margin_top"
-            app:cardCornerRadius="@dimen/bmi_card_corner_radius"
-            app:cardElevation="2dp"
-            app:cardBackgroundColor="#FFFFFF"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp"
+            app:cardBackgroundColor="@color/midnight_blue"
             app:layout_constraintTop_toBottomOf="@id/tvResultTitle"
             app:layout_constraintStart_toStartOf="@id/guideLeft"
             app:layout_constraintEnd_toEndOf="@id/guideRight">
@@ -67,17 +76,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="@dimen/bmi_card_padding">
+                android:padding="@dimen/bmi_card_padding"
+                android:background="@drawable/card_background_glow">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Personal Details"
+                    android:text="// PERSONAL DATA"
                     android:textSize="@dimen/bmi_section_title_text_size"
                     android:textStyle="bold"
-                    android:textColor="#5E35B1"
-                    android:fontFamily="sans-serif-medium"
-                    android:paddingBottom="12dp"/>
+                    android:textColor="@color/electric_cyan"
+                    android:fontFamily="monospace"
+                    android:paddingBottom="16dp"/>
 
                 <!-- Name Row -->
                 <LinearLayout
@@ -86,24 +96,31 @@
                     android:orientation="horizontal"
                     android:gravity="center_vertical"
                     android:minHeight="40dp"
-                    android:layout_marginBottom="8dp">
+                    android:layout_marginBottom="10dp">
+
+                    <View
+                        android:layout_width="3dp"
+                        android:layout_height="20dp"
+                        android:background="@color/electric_cyan"
+                        android:layout_marginEnd="12dp"/>
+
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Name"
-                        android:textColor="#757575"
+                        android:text="NAME"
+                        android:textColor="@color/text_secondary"
                         android:textSize="@dimen/bmi_label_text_size"
-                        android:fontFamily="sans-serif"/>
+                        android:fontFamily="monospace"/>
                     <TextView
                         android:id="@+id/tvResultName"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
-                        android:textColor="#212121"
+                        android:textColor="@color/text_primary"
                         android:textSize="@dimen/bmi_value_text_size"
                         android:textStyle="bold"
-                        android:fontFamily="sans-serif-medium"
+                        android:fontFamily="sans-serif-light"
                         android:textAlignment="textEnd"
                         tools:text="John Doe"/>
                 </LinearLayout>
@@ -115,24 +132,31 @@
                     android:orientation="horizontal"
                     android:gravity="center_vertical"
                     android:minHeight="40dp"
-                    android:layout_marginBottom="8dp">
+                    android:layout_marginBottom="10dp">
+
+                    <View
+                        android:layout_width="3dp"
+                        android:layout_height="20dp"
+                        android:background="@color/electric_cyan"
+                        android:layout_marginEnd="12dp"/>
+
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Age"
-                        android:textColor="#757575"
+                        android:text="AGE"
+                        android:textColor="@color/text_secondary"
                         android:textSize="@dimen/bmi_label_text_size"
-                        android:fontFamily="sans-serif"/>
+                        android:fontFamily="monospace"/>
                     <TextView
                         android:id="@+id/tvResultAge"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
-                        android:textColor="#212121"
+                        android:textColor="@color/text_primary"
                         android:textSize="@dimen/bmi_value_text_size"
                         android:textStyle="bold"
-                        android:fontFamily="sans-serif-medium"
+                        android:fontFamily="sans-serif-light"
                         android:textAlignment="textEnd"
                         tools:text="25 years"/>
                 </LinearLayout>
@@ -144,24 +168,31 @@
                     android:orientation="horizontal"
                     android:gravity="center_vertical"
                     android:minHeight="40dp"
-                    android:layout_marginBottom="8dp">
+                    android:layout_marginBottom="10dp">
+
+                    <View
+                        android:layout_width="3dp"
+                        android:layout_height="20dp"
+                        android:background="@color/electric_cyan"
+                        android:layout_marginEnd="12dp"/>
+
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Height"
-                        android:textColor="#757575"
+                        android:text="HEIGHT"
+                        android:textColor="@color/text_secondary"
                         android:textSize="@dimen/bmi_label_text_size"
-                        android:fontFamily="sans-serif"/>
+                        android:fontFamily="monospace"/>
                     <TextView
                         android:id="@+id/tvResultHeight"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
-                        android:textColor="#212121"
+                        android:textColor="@color/text_primary"
                         android:textSize="@dimen/bmi_value_text_size"
                         android:textStyle="bold"
-                        android:fontFamily="sans-serif-medium"
+                        android:fontFamily="sans-serif-light"
                         android:textAlignment="textEnd"
                         tools:text="170 cm / 1.70 m"/>
                 </LinearLayout>
@@ -173,23 +204,30 @@
                     android:orientation="horizontal"
                     android:gravity="center_vertical"
                     android:minHeight="40dp">
+
+                    <View
+                        android:layout_width="3dp"
+                        android:layout_height="20dp"
+                        android:background="@color/electric_cyan"
+                        android:layout_marginEnd="12dp"/>
+
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Weight"
-                        android:textColor="#757575"
+                        android:text="WEIGHT"
+                        android:textColor="@color/text_secondary"
                         android:textSize="@dimen/bmi_label_text_size"
-                        android:fontFamily="sans-serif"/>
+                        android:fontFamily="monospace"/>
                     <TextView
                         android:id="@+id/tvResultWeight"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
-                        android:textColor="#212121"
+                        android:textColor="@color/text_primary"
                         android:textSize="@dimen/bmi_value_text_size"
                         android:textStyle="bold"
-                        android:fontFamily="sans-serif-medium"
+                        android:fontFamily="sans-serif-light"
                         android:textAlignment="textEnd"
                         tools:text="70 kg"/>
                 </LinearLayout>
@@ -197,14 +235,15 @@
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <!-- BMI Result Card with dynamic color -->
+        <!-- BMI Result Card with dynamic neon glow -->
         <androidx.cardview.widget.CardView
             android:id="@+id/cardBmiResult"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            app:cardCornerRadius="@dimen/bmi_card_corner_radius"
-            app:cardElevation="6dp"
+            android:layout_marginTop="20dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="8dp"
+            app:cardBackgroundColor="@color/midnight_blue"
             app:layout_constraintTop_toBottomOf="@id/cardUserDetails"
             app:layout_constraintStart_toStartOf="@id/guideLeft"
             app:layout_constraintEnd_toEndOf="@id/guideRight">
@@ -214,49 +253,56 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="@dimen/bmi_card_padding"
+                android:background="@drawable/result_card_glow"
                 android:gravity="center">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Your BMI Score"
+                    android:text="[ BMI INDEX ]"
                     android:textSize="@dimen/bmi_subtitle_text_size"
-                    android:textColor="#FFFFFF"
+                    android:textColor="@color/text_secondary"
+                    android:fontFamily="monospace"
                     android:alpha="0.9"
-                    android:fontFamily="sans-serif"/>
+                    android:letterSpacing="0.15"/>
 
                 <TextView
                     android:id="@+id/tvBmiValue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="12dp"
                     android:textSize="@dimen/bmi_result_value_text_size"
                     android:textStyle="bold"
-                    android:textColor="#FFFFFF"
-                    android:fontFamily="sans-serif-black"
+                    android:textColor="@color/electric_cyan"
+                    android:fontFamily="sans-serif-thin"
+                    android:shadowColor="@color/electric_cyan"
+                    android:shadowDx="0"
+                    android:shadowDy="0"
+                    android:shadowRadius="20"
                     tools:text="22.5"/>
 
                 <TextView
                     android:id="@+id/tvBmiCategory"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="12dp"
                     android:textSize="@dimen/bmi_result_category_text_size"
                     android:textStyle="bold"
-                    android:textColor="#FFFFFF"
-                    android:fontFamily="sans-serif-medium"
-                    tools:text="Normal"/>
+                    android:textColor="@color/text_primary"
+                    android:fontFamily="monospace"
+                    android:letterSpacing="0.2"
+                    tools:text="NORMAL"/>
 
                 <TextView
                     android:id="@+id/tvBmiDescription"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:alpha="0.9"
+                    android:layout_marginTop="16dp"
+                    android:alpha="0.85"
                     android:textAlignment="center"
-                    android:textColor="#FFFFFF"
+                    android:textColor="@color/text_secondary"
                     android:textSize="@dimen/bmi_result_desc_text_size"
-                    android:fontFamily="sans-serif"
+                    android:fontFamily="sans-serif-light"
                     android:paddingStart="16dp"
                     android:paddingEnd="16dp"
                     tools:text="Your BMI is in the healthy range.\nKeep maintaining your lifestyle!"/>
@@ -269,10 +315,10 @@
             android:id="@+id/cardBmiScale"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            app:cardCornerRadius="@dimen/bmi_card_corner_radius"
-            app:cardElevation="2dp"
-            app:cardBackgroundColor="#FFFFFF"
+            android:layout_marginTop="20dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp"
+            app:cardBackgroundColor="@color/midnight_blue"
             app:layout_constraintTop_toBottomOf="@id/cardBmiResult"
             app:layout_constraintStart_toStartOf="@id/guideLeft"
             app:layout_constraintEnd_toEndOf="@id/guideRight">
@@ -281,17 +327,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="@dimen/bmi_card_padding">
+                android:padding="@dimen/bmi_card_padding"
+                android:background="@drawable/card_background_glow">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="BMI Categories"
+                    android:text="// REFERENCE SCALE"
                     android:textSize="@dimen/bmi_section_title_text_size"
                     android:textStyle="bold"
-                    android:textColor="#5E35B1"
-                    android:fontFamily="sans-serif-medium"
-                    android:paddingBottom="12dp"/>
+                    android:textColor="@color/electric_cyan"
+                    android:fontFamily="monospace"
+                    android:paddingBottom="16dp"/>
 
                 <!-- Underweight -->
                 <LinearLayout
@@ -300,31 +347,30 @@
                     android:orientation="horizontal"
                     android:gravity="center_vertical"
                     android:minHeight="44dp"
-                    android:layout_marginBottom="10dp">
+                    android:layout_marginBottom="12dp">
 
                     <View
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
+                        android:layout_width="4dp"
+                        android:layout_height="24dp"
                         android:layout_marginEnd="12dp"
-                        android:background="@drawable/category_indicator"
-                        android:backgroundTint="#1565C0"/>
+                        android:background="@color/bmi_underweight"/>
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Underweight"
-                        android:textColor="#212121"
+                        android:text="UNDERWEIGHT"
+                        android:textColor="@color/text_primary"
                         android:textSize="@dimen/bmi_label_text_size"
-                        android:fontFamily="sans-serif-medium"/>
+                        android:fontFamily="monospace"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="&lt; 18.5"
-                        android:textColor="#757575"
+                        android:textColor="@color/text_secondary"
                         android:textSize="@dimen/bmi_label_text_size"
-                        android:fontFamily="sans-serif"/>
+                        android:fontFamily="monospace"/>
                 </LinearLayout>
 
                 <!-- Normal -->
@@ -334,31 +380,30 @@
                     android:orientation="horizontal"
                     android:gravity="center_vertical"
                     android:minHeight="44dp"
-                    android:layout_marginBottom="10dp">
+                    android:layout_marginBottom="12dp">
 
                     <View
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
+                        android:layout_width="4dp"
+                        android:layout_height="24dp"
                         android:layout_marginEnd="12dp"
-                        android:background="@drawable/category_indicator"
-                        android:backgroundTint="#2E7D32"/>
+                        android:background="@color/bmi_normal"/>
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Normal"
-                        android:textColor="#212121"
+                        android:text="NORMAL"
+                        android:textColor="@color/text_primary"
                         android:textSize="@dimen/bmi_label_text_size"
-                        android:fontFamily="sans-serif-medium"/>
+                        android:fontFamily="monospace"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="18.5 – 24.9"
-                        android:textColor="#757575"
+                        android:textColor="@color/text_secondary"
                         android:textSize="@dimen/bmi_label_text_size"
-                        android:fontFamily="sans-serif"/>
+                        android:fontFamily="monospace"/>
                 </LinearLayout>
 
                 <!-- Overweight -->
@@ -370,51 +415,55 @@
                     android:minHeight="44dp">
 
                     <View
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
+                        android:layout_width="4dp"
+                        android:layout_height="24dp"
                         android:layout_marginEnd="12dp"
-                        android:background="@drawable/category_indicator"
-                        android:backgroundTint="#C62828"/>
+                        android:background="@color/bmi_overweight"/>
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Overweight"
-                        android:textColor="#212121"
+                        android:text="OVERWEIGHT"
+                        android:textColor="@color/bmi_overweight"
                         android:textSize="@dimen/bmi_label_text_size"
-                        android:fontFamily="sans-serif-medium"/>
+                        android:fontFamily="monospace"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="≥ 25.0"
-                        android:textColor="#757575"
+                        android:textColor="@color/bmi_overweight"
                         android:textSize="@dimen/bmi_label_text_size"
-                        android:fontFamily="sans-serif"/>
+                        android:fontFamily="monospace"
+                        android:alpha="0.8"/>
                 </LinearLayout>
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <!-- Recalculate Button -->
+        <!-- Recalculate Button with neon gradient -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnRecalculate"
-            android:layout_width="209dp"
+            android:layout_width="0dp"
             android:layout_height="54dp"
-            android:layout_marginStart="184dp"
-            android:text="Recalculate"
-            android:textColor="#FFFFFF"
+            android:layout_marginTop="28dp"
+            android:text="↻ RECALCULATE"
+            android:textColor="@color/deep_navy"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:backgroundTint="#5E35B1"
-            app:cornerRadius="8dp"
+            android:fontFamily="monospace"
+            android:letterSpacing="0.1"
+            app:backgroundTint="@color/accent_amber"
+            app:cornerRadius="27dp"
+            app:strokeColor="@color/accent_amber"
+            app:strokeWidth="2dp"
+            app:elevation="6dp"
+            app:layout_constraintTop_toBottomOf="@id/cardBmiScale"
+            app:layout_constraintStart_toStartOf="@id/guideLeft"
+            app:layout_constraintEnd_toEndOf="@id/guideRight"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.973"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cardBmiScale"
-            app:layout_constraintVertical_bias="0.039" />
+            android:layout_marginBottom="24dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

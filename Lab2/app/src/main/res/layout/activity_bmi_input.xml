@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    android:background="@android:color/white">
+    android:background="@drawable/atmospheric_background">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -30,7 +30,7 @@
             android:orientation="vertical"
             app:layout_constraintGuide_end="@dimen/bmi_content_margin_horizontal"/>
 
-        <!-- Decorative header background -->
+        <!-- Decorative header background with gradient -->
         <View
             android:id="@+id/headerBackground"
             android:layout_width="0dp"
@@ -39,49 +39,61 @@
             app:layout_constraintBottom_toTopOf="@id/cardInput"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/tvBmiTitle" />
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <!-- Icon -->
+        <!-- Accent glow line -->
+        <View
+            android:id="@+id/accentLine"
+            android:layout_width="80dp"
+            android:layout_height="4dp"
+            android:background="@color/electric_cyan"
+            android:alpha="0.8"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="@id/guideLeft"
+            app:layout_constraintEnd_toEndOf="@id/guideRight"
+            android:layout_marginTop="32dp"/>
 
-        <!-- Header Title -->
+        <!-- Header Title with distinctive typography -->
         <TextView
             android:id="@+id/tvBmiTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-medium"
-            android:text="BMI Calculator"
+            android:fontFamily="monospace"
+            android:text="BMI CALCULATOR"
             android:textAlignment="center"
-            android:textColor="#1A237E"
+            android:textColor="@color/text_primary"
             android:textSize="@dimen/bmi_title_text_size"
             android:textStyle="bold"
+            android:letterSpacing="0.15"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@id/accentLine"
             app:layout_constraintEnd_toEndOf="@id/guideRight"
-            app:layout_constraintStart_toStartOf="@id/guideLeft"
-            tools:layout_editor_absoluteY="121dp" />
+            app:layout_constraintStart_toStartOf="@id/guideLeft" />
 
-        <!-- Subtitle -->
+        <!-- Subtitle with cyan accent -->
         <TextView
             android:id="@+id/tvBmiSubtitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Track your health with ease"
+            android:text="// QUANTIFY YOUR WELLNESS"
             android:textSize="@dimen/bmi_subtitle_text_size"
-            android:textColor="#616161"
+            android:textColor="@color/soft_cyan"
             android:textAlignment="center"
-            android:fontFamily="sans-serif"
-            android:layout_marginTop="4dp"
+            android:fontFamily="monospace"
+            android:layout_marginTop="8dp"
             app:layout_constraintTop_toBottomOf="@id/tvBmiTitle"
             app:layout_constraintStart_toStartOf="@id/guideLeft"
             app:layout_constraintEnd_toEndOf="@id/guideRight"/>
 
-        <!-- Input Card with elevation and rounded corners -->
+        <!-- Input Card with glow effect -->
         <androidx.cardview.widget.CardView
             android:id="@+id/cardInput"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/bmi_card_margin_top"
-            app:cardCornerRadius="@dimen/bmi_card_corner_radius"
-            app:cardElevation="3dp"
-            app:cardBackgroundColor="#FFFFFF"
+            android:layout_marginTop="32dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="8dp"
+            app:cardBackgroundColor="@color/midnight_blue"
             app:layout_constraintTop_toBottomOf="@id/tvBmiSubtitle"
             app:layout_constraintStart_toStartOf="@id/guideLeft"
             app:layout_constraintEnd_toEndOf="@id/guideRight">
@@ -90,7 +102,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="@dimen/bmi_card_padding">
+                android:padding="@dimen/bmi_card_padding"
+                android:background="@drawable/card_background_glow">
 
                 <!-- Name Field -->
                 <com.google.android.material.textfield.TextInputLayout
@@ -98,11 +111,13 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Full Name"
+                    android:hint="FULL NAME"
                     app:startIconDrawable="@android:drawable/ic_menu_myplaces"
-                    app:startIconTint="#5E35B1"
-                    app:hintTextColor="#5E35B1"
-                    app:boxStrokeColor="#5E35B1"
+                    app:startIconTint="@color/electric_cyan"
+                    app:hintTextColor="@color/text_secondary"
+                    app:boxStrokeColor="@color/electric_cyan"
+                    app:boxStrokeWidth="2dp"
+                    app:boxBackgroundColor="@color/slate_gray"
                     app:boxCornerRadiusTopStart="12dp"
                     app:boxCornerRadiusTopEnd="12dp"
                     app:boxCornerRadiusBottomStart="12dp"
@@ -113,7 +128,8 @@
                         android:layout_height="wrap_content"
                         android:inputType="textPersonName"
                         android:textSize="@dimen/bmi_input_text_size"
-                        android:textColor="#212121"
+                        android:textColor="@color/text_primary"
+                        android:fontFamily="sans-serif-light"
                         android:imeOptions="actionNext"
                         android:minHeight="48dp"/>
                 </com.google.android.material.textfield.TextInputLayout>
@@ -125,12 +141,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/bmi_field_spacing"
-                    android:hint="Age"
+                    android:hint="AGE"
                     app:startIconDrawable="@android:drawable/ic_menu_today"
-                    app:startIconTint="#5E35B1"
-                    app:hintTextColor="#5E35B1"
-                    app:boxStrokeColor="#5E35B1"
+                    app:startIconTint="@color/electric_cyan"
+                    app:hintTextColor="@color/text_secondary"
+                    app:boxStrokeColor="@color/electric_cyan"
+                    app:boxStrokeWidth="2dp"
+                    app:boxBackgroundColor="@color/slate_gray"
                     app:suffixText="years"
+                    app:suffixTextColor="@color/text_tertiary"
                     app:boxCornerRadiusTopStart="12dp"
                     app:boxCornerRadiusTopEnd="12dp"
                     app:boxCornerRadiusBottomStart="12dp"
@@ -141,7 +160,8 @@
                         android:layout_height="wrap_content"
                         android:inputType="number"
                         android:textSize="@dimen/bmi_input_text_size"
-                        android:textColor="#212121"
+                        android:textColor="@color/text_primary"
+                        android:fontFamily="sans-serif-light"
                         android:imeOptions="actionNext"
                         android:minHeight="48dp"/>
                 </com.google.android.material.textfield.TextInputLayout>
@@ -162,12 +182,15 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:layout_marginEnd="8dp"
-                        android:hint="Height"
+                        android:hint="HEIGHT"
                         app:startIconDrawable="@android:drawable/arrow_up_float"
-                        app:startIconTint="#5E35B1"
-                        app:hintTextColor="#5E35B1"
-                        app:boxStrokeColor="#5E35B1"
+                        app:startIconTint="@color/electric_cyan"
+                        app:hintTextColor="@color/text_secondary"
+                        app:boxStrokeColor="@color/electric_cyan"
+                        app:boxStrokeWidth="2dp"
+                        app:boxBackgroundColor="@color/slate_gray"
                         app:suffixText="cm"
+                        app:suffixTextColor="@color/text_tertiary"
                         app:boxCornerRadiusTopStart="12dp"
                         app:boxCornerRadiusTopEnd="12dp"
                         app:boxCornerRadiusBottomStart="12dp"
@@ -178,7 +201,8 @@
                             android:layout_height="wrap_content"
                             android:inputType="numberDecimal"
                             android:textSize="@dimen/bmi_input_text_size"
-                            android:textColor="#212121"
+                            android:textColor="@color/text_primary"
+                            android:fontFamily="sans-serif-light"
                             android:imeOptions="actionNext"
                             android:minHeight="48dp"/>
                     </com.google.android.material.textfield.TextInputLayout>
@@ -191,12 +215,15 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:layout_marginStart="8dp"
-                        android:hint="Weight"
+                        android:hint="WEIGHT"
                         app:startIconDrawable="@android:drawable/ic_menu_compass"
-                        app:startIconTint="#5E35B1"
-                        app:hintTextColor="#5E35B1"
-                        app:boxStrokeColor="#5E35B1"
+                        app:startIconTint="@color/electric_cyan"
+                        app:hintTextColor="@color/text_secondary"
+                        app:boxStrokeColor="@color/electric_cyan"
+                        app:boxStrokeWidth="2dp"
+                        app:boxBackgroundColor="@color/slate_gray"
                         app:suffixText="kg"
+                        app:suffixTextColor="@color/text_tertiary"
                         app:boxCornerRadiusTopStart="12dp"
                         app:boxCornerRadiusTopEnd="12dp"
                         app:boxCornerRadiusBottomStart="12dp"
@@ -207,7 +234,8 @@
                             android:layout_height="wrap_content"
                             android:inputType="numberDecimal"
                             android:textSize="@dimen/bmi_input_text_size"
-                            android:textColor="#212121"
+                            android:textColor="@color/text_primary"
+                            android:fontFamily="sans-serif-light"
                             android:imeOptions="actionDone"
                             android:minHeight="48dp"/>
                     </com.google.android.material.textfield.TextInputLayout>
@@ -217,39 +245,39 @@
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <!-- Calculate Button with Material Design elevation -->
+        <!-- Calculate Button with neon gradient -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnCalculate"
             android:layout_width="0dp"
             android:layout_height="@dimen/bmi_button_height"
-            android:layout_marginTop="@dimen/bmi_button_margin_top"
-            android:text="Calculate BMI"
+            android:layout_marginTop="28dp"
+            android:text="▸ CALCULATE"
             android:textSize="@dimen/bmi_button_text_size"
             android:textStyle="bold"
-            android:textColor="#FFFFFF"
-            android:fontFamily="sans-serif-medium"
-            app:backgroundTint="#5E35B1"
+            android:textColor="@color/deep_navy"
+            android:fontFamily="monospace"
+            android:letterSpacing="0.1"
+            app:backgroundTint="@color/electric_cyan"
             app:cornerRadius="28dp"
-            app:elevation="4dp"
-            app:icon="@android:drawable/ic_menu_upload"
-            app:iconGravity="textStart"
-            app:iconTint="#FFFFFF"
+            app:elevation="6dp"
+            app:strokeColor="@color/neon_cyan"
+            app:strokeWidth="2dp"
             android:minHeight="48dp"
             app:layout_constraintTop_toBottomOf="@id/cardInput"
             app:layout_constraintStart_toStartOf="@id/guideLeft"
             app:layout_constraintEnd_toEndOf="@id/guideRight"/>
 
-        <!-- Footer Message -->
+        <!-- Footer Message with tech aesthetic -->
         <TextView
             android:id="@+id/tvFooter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="24dp"
             android:paddingBottom="24dp"
-            android:text="Stay healthy, stay fit! 💪"
-            android:textColor="#9E9E9E"
-            android:textSize="@dimen/bmi_subtitle_text_size"
-            android:fontFamily="sans-serif-light"
+            android:text="[ OPTIMIZE YOUR HEALTH METRICS ]"
+            android:textColor="@color/text_tertiary"
+            android:textSize="12sp"
+            android:fontFamily="monospace"
             android:textAlignment="center"
             app:layout_constraintTop_toBottomOf="@id/btnCalculate"
             app:layout_constraintStart_toStartOf="@id/guideLeft"
