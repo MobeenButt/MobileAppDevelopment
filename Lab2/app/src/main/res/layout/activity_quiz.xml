@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F8FCFF"
+    tools:context=".Quiz">
+
+    <!-- Header -->
+    <TextView
+        android:id="@+id/quizTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Quiz"
+        android:textColor="#2B3A52"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-medium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Color Reference Scale -->
+    <LinearLayout
+        android:id="@+id/colorScale"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/quizTitle">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="8dp"
+            android:layout_weight="1"
+            android:layout_marginEnd="4dp"
+            android:background="#B8E6FF" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="8dp"
+            android:layout_weight="1"
+            android:layout_marginEnd="4dp"
+            android:background="#B8FFE6" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="8dp"
+            android:layout_weight="1"
+            android:layout_marginEnd="4dp"
+            android:background="#FFE6B8" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="8dp"
+            android:layout_weight="1"
+            android:layout_marginEnd="4dp"
+            android:background="#FFCCB8" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="8dp"
+            android:layout_weight="1"
+            android:background="#FFB8CC" />
+    </LinearLayout>
+
+    <!-- ScrollView for Questions -->
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/colorScale">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <!-- Question 1 -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
+                        android:text="1. What is the primary language for Android development?"
+                        android:textColor="#2B3A52"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <RadioGroup
+                        android:id="@+id/question1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <RadioButton
+                            android:id="@+id/q1_option1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:buttonTint="#FFB8CC"
+                            android:padding="8dp"
+                            android:text="Java"
+                            android:textColor="#4A5F7F" />
+
+                        <RadioButton
+                            android:id="@+id/q1_option2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:buttonTint="#FFE6B8"
+                            android:padding="8dp"
+                            android:text="Swift"
+                            android:textColor="#4A5F7F" />
+
+                        <RadioButton
+                            android:id="@+id/q1_option3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:buttonTint="#B8FFE6"
+                            android:padding="8dp"
+                            android:text="Kotlin"
+                            android:textColor="#4A5F7F" />
+
+                        <RadioButton
+                            android:id="@+id/q1_option4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:buttonTint="#B8E6FF"
+                            android:padding="8dp"
+                            android:text="Python"
+                            android:textColor="#4A5F7F" />
+                    </RadioGroup>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Question 2 -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="2. What does MVVM stand for in Android architecture?"
+                        android:textColor="#2B3A52"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="12dp" />
+
+                    <RadioGroup
+                        android:id="@+id/question2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <RadioButton
+                            android:id="@+id/q2_option1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Model-View-Manager"
+                            android:textColor="#4A5F7F"
+                            android:buttonTint="#FFB8CC"
+                            android:padding="8dp" />
+
+                        <RadioButton
+                            android:id="@+id/q2_option2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Model-View-ViewModel"
+                            android:textColor="#4A5F7F"
+                            android:buttonTint="#B8FFE6"
+                            android:padding="8dp" />
+
+                        <RadioButton
+                            android:id="@+id/q2_option3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Mobile-View-ViewModel"
+                            android:textColor="#4A5F7F"
+                            android:buttonTint="#FFE6B8"
+                            android:padding="8dp" />
+
+                        <RadioButton
+                            android:id="@+id/q2_option4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Model-Virtual-ViewModel"
+                            android:textColor="#4A5F7F"
+                            android:buttonTint="#B8E6FF"
+                            android:padding="8dp" />
+                    </RadioGroup>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Question 3 -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="3. Which component is used to navigate between screens in Android?"
+                        android:textColor="#2B3A52"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="12dp" />
+
+                    <RadioGroup
+                        android:id="@+id/question3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <RadioButton
+                            android:id="@+id/q3_option1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Fragment"
+                            android:textColor="#4A5F7F"
+                            android:buttonTint="#FFB8CC"
+                            android:padding="8dp" />
+
+                        <RadioButton
+                            android:id="@+id/q3_option2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Service"
+                            android:textColor="#4A5F7F"
+                            android:buttonTint="#FFE6B8"
+                            android:padding="8dp" />
+
+                        <RadioButton
+                            android:id="@+id/q3_option3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Broadcast Receiver"
+                            android:textColor="#4A5F7F"
+                            android:buttonTint="#B8E6FF"
+                            android:padding="8dp" />
+
+                        <RadioButton
+                            android:id="@+id/q3_option4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Intent"
+                            android:textColor="#4A5F7F"
+                            android:buttonTint="#B8FFE6"
+                            android:padding="8dp" />
+                    </RadioGroup>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Question 4 -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="4. Which method is called when an Activity is first created?"
+                        android:textColor="#2B3A52"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="12dp" />
+
+                    <RadioGroup
+                        android:id="@+id/question4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <RadioButton
+                            android:id="@+id/q4_option1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="onCreate()"
+                            android:textColor="#4A5F7F"
+                            android:buttonTint="#B8FFE6"
+                            android:padding="8dp" />
+
+                        <RadioButton
+                            android:id="@+id/q4_option2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="onStart()"
+                            android:textColor="#4A5F7F"
+                            android:buttonTint="#FFE6B8"
+                            android:padding="8dp" />
+
+                        <RadioButton
+                            android:id="@+id/q4_option3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="onResume()"
+                            android:textColor="#4A5F7F"
+                            android:buttonTint="#B8E6FF"
+                            android:padding="8dp" />
+
+                        <RadioButton
+                            android:id="@+id/q4_option4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="onDestroy()"
+                            android:textColor="#4A5F7F"
+                            android:buttonTint="#FFB8CC"
+                            android:padding="8dp" />
+                    </RadioGroup>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Question 5 -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="5. What is used to display a scrollable list in Android?"
+                        android:textColor="#2B3A52"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="12dp" />
+
+                    <RadioGroup
+                        android:id="@+id/question5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <RadioButton
+                            android:id="@+id/q5_option1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="TextView"
+                            android:textColor="#4A5F7F"
+                            android:buttonTint="#FFB8CC"
+                            android:padding="8dp" />
+
+                        <RadioButton
+                            android:id="@+id/q5_option2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="ImageView"
+                            android:textColor="#4A5F7F"
+                            android:buttonTint="#FFE6B8"
+                            android:padding="8dp" />
+
+                        <RadioButton
+                            android:id="@+id/q5_option3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="RecyclerView"
+                            android:textColor="#4A5F7F"
+                            android:buttonTint="#B8FFE6"
+                            android:padding="8dp" />
+
+                        <RadioButton
+                            android:id="@+id/q5_option4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Button"
+                            android:textColor="#4A5F7F"
+                            android:buttonTint="#B8E6FF"
+                            android:padding="8dp" />
+                    </RadioGroup>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Submit Button -->
+            <Button
+                android:id="@+id/submitButton"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginTop="8dp"
+                android:backgroundTint="#6BA5D6"
+                android:text="Submit Quiz"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:elevation="4dp"
+                app:cornerRadius="12dp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
