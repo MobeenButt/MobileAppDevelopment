@@ -12,22 +12,25 @@ class MainActivity : AppCompatActivity() {
 
         val listView = ListView(this)
         setContentView(listView)
-
+//for new kt add here
         val screenNames = arrayOf(
             "Login Screen",
             "Register Screen",
             "BMI Calculator",
             "Calculator",
-            "Welcome Screen"
+            "Welcome Screen",
+            "Quiz"
         )
 
+        //also add name of file :: class.java here
         @Suppress("UNCHECKED_CAST")
         val classes = arrayOf(
             LoginActivity::class.java,
             RegisterActivity::class.java,
             BmiInputActivity::class.java,
             Calculator::class.java,
-            Welcome::class.java
+            Welcome::class.java,
+            Quiz::class.java
         )
 
         val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, screenNames)
@@ -39,4 +42,3 @@ class MainActivity : AppCompatActivity() {
         }
     }
 }
-
