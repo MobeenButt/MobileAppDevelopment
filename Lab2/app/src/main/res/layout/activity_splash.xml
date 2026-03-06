@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/splash_background"
+    tools:context=".SplashActivity">
+
+    <!-- ===== Floating Background Orbs ===== -->
+    <View
+        android:id="@+id/orbCyan"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="-80dp"
+        android:layout_marginEnd="-60dp"
+        android:background="@drawable/splash_orb_cyan"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/orbMint"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_marginStart="-90dp"
+        android:layout_marginBottom="-40dp"
+        android:background="@drawable/splash_orb_mint"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <View
+        android:id="@+id/orbAmber"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginEnd="-50dp"
+        android:background="@drawable/splash_orb_amber"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- ===== Tiny floating particle dots ===== -->
+    <View
+        android:id="@+id/particle1"
+        android:layout_width="6dp"
+        android:layout_height="6dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="180dp"
+        android:alpha="0"
+        android:background="@drawable/splash_orb_cyan"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/particle2"
+        android:layout_width="4dp"
+        android:layout_height="4dp"
+        android:layout_marginEnd="70dp"
+        android:layout_marginTop="300dp"
+        android:alpha="0"
+        android:background="@drawable/splash_orb_mint"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/particle3"
+        android:layout_width="5dp"
+        android:layout_height="5dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginBottom="200dp"
+        android:alpha="0"
+        android:background="@drawable/splash_orb_amber"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <View
+        android:id="@+id/particle4"
+        android:layout_width="3dp"
+        android:layout_height="3dp"
+        android:layout_marginEnd="130dp"
+        android:layout_marginBottom="320dp"
+        android:alpha="0"
+        android:background="@drawable/splash_orb_cyan"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- ===== Center Logo Area ===== -->
+
+    <!-- Outer spinning ring -->
+    <View
+        android:id="@+id/logoRing"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:alpha="0"
+        android:background="@drawable/splash_logo_ring"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.35" />
+
+    <!-- Inner gradient circle -->
+    <View
+        android:id="@+id/logoCircle"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:alpha="0"
+        android:background="@drawable/splash_logo_circle"
+        app:layout_constraintBottom_toBottomOf="@id/logoRing"
+        app:layout_constraintEnd_toEndOf="@id/logoRing"
+        app:layout_constraintStart_toStartOf="@id/logoRing"
+        app:layout_constraintTop_toTopOf="@id/logoRing" />
+
+    <!-- Quiz icon on top -->
+    <ImageView
+        android:id="@+id/logoIcon"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:alpha="0"
+        android:contentDescription="Quiz Logo"
+        android:src="@drawable/ic_quiz_icon"
+        app:layout_constraintBottom_toBottomOf="@id/logoCircle"
+        app:layout_constraintEnd_toEndOf="@id/logoCircle"
+        app:layout_constraintStart_toStartOf="@id/logoCircle"
+        app:layout_constraintTop_toTopOf="@id/logoCircle"
+        app:tint="#0A0E2A" />
+
+    <!-- ===== Title Text ===== -->
+    <TextView
+        android:id="@+id/splashTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:alpha="0"
+        android:fontFamily="sans-serif-black"
+        android:letterSpacing="0.08"
+        android:text="QUIZ MASTER"
+        android:textColor="#FFFFFF"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        android:shadowColor="#6033FFFF"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="20"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/logoRing" />
+
+    <!-- Subtitle -->
+    <TextView
+        android:id="@+id/splashSubtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:alpha="0"
+        android:fontFamily="sans-serif-light"
+        android:letterSpacing="0.25"
+        android:text="CHALLENGE YOUR KNOWLEDGE"
+        android:textColor="#99B5D0"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/splashTitle" />
+
+    <!-- ===== Progress Bar Area ===== -->
+    <LinearLayout
+        android:id="@+id/progressArea"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginBottom="100dp"
+        android:alpha="0"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <!-- Percentage text -->
+        <TextView
+            android:id="@+id/progressPercent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:fontFamily="sans-serif-medium"
+            android:letterSpacing="0.15"
+            android:text="0%"
+            android:textColor="#33FFFF"
+            android:textSize="16sp" />
+
+        <!-- Track background -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="8dp">
+
+            <View
+                android:id="@+id/progressTrack"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/splash_progress_track" />
+
+            <View
+                android:id="@+id/progressFill"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/splash_progress_fill" />
+        </FrameLayout>
+
+        <!-- Loading label -->
+        <TextView
+            android:id="@+id/loadingText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:fontFamily="sans-serif"
+            android:letterSpacing="0.3"
+            android:text="LOADING..."
+            android:textColor="#4D99B5D0"
+            android:textSize="11sp" />
+
+    </LinearLayout>
+
+    <!-- ===== Bottom footer ===== -->
+    <LinearLayout
+        android:id="@+id/footerArea"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:alpha="0"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <!-- Color dots row -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_width="20dp"
+                android:layout_height="4dp"
+                android:layout_marginEnd="6dp"
+                android:background="@drawable/splash_progress_fill" />
+
+            <View
+                android:layout_width="20dp"
+                android:layout_height="4dp"
+                android:layout_marginEnd="6dp"
+                android:background="@drawable/splash_orb_amber" />
+
+            <View
+                android:layout_width="20dp"
+                android:layout_height="4dp"
+                android:background="@drawable/splash_orb_mint" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-light"
+            android:letterSpacing="0.2"
+            android:text="Lab 2 • Mobile Development"
+            android:textColor="#4D99B5D0"
+            android:textSize="11sp" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

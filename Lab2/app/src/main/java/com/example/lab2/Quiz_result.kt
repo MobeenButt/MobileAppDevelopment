@@ -13,9 +13,10 @@ class Quiz_result : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quiz_result)
 
-        // Get score from intent
+        // Get score and username from intent
         val score = intent.getIntExtra("SCORE", 0)
         val maxScore = intent.getIntExtra("MAX_SCORE", 5)
+        val username = intent.getStringExtra("USERNAME") ?: "User"
 
         // Calculate percentage
         val percentage = (score.toFloat() / maxScore * 100).toInt()
@@ -25,8 +26,12 @@ class Quiz_result : AppCompatActivity() {
         val percentageText = findViewById<TextView>(R.id.percentageText)
         val ratingText = findViewById<TextView>(R.id.ratingText)
         val messageText = findViewById<TextView>(R.id.messageText)
+        val userNameText = findViewById<TextView>(R.id.userNameText)
         val retakeButton = findViewById<Button>(R.id.retakeButton)
         val homeButton = findViewById<Button>(R.id.homeButton)
+
+        // Set username
+        userNameText.text = "$username's Results"
 
         // Set score and percentage
         scoreText.text = "$score / $maxScore"
@@ -36,23 +41,23 @@ class Quiz_result : AppCompatActivity() {
         val (rating, message) = when (score) {
             5 -> Pair(
                 "Perfect Score! 🎉",
-                "Excellent! You have mastered mobile app development concepts. You're ready to build amazing apps!"
+                "Excellent, $username! You have mastered mobile app development concepts. You're ready to build amazing apps!"
             )
             4 -> Pair(
                 "Great Job! 👏",
-                "Very good! You have a strong understanding of mobile development. Keep learning!"
+                "Very good, $username! You have a strong understanding of mobile development. Keep learning!"
             )
             3 -> Pair(
                 "Good Effort! 👍",
-                "You're on the right track! Review the concepts you missed and try again."
+                "$username, you're on the right track! Review the concepts you missed and try again."
             )
             2 -> Pair(
                 "Keep Trying! 📚",
-                "You need more practice. Study the topics again and retake the quiz."
+                "$username, you need more practice. Study the topics again and retake the quiz."
             )
             else -> Pair(
                 "Need Improvement! 📖",
-                "Don't give up! Review the material carefully and try again. Practice makes perfect!"
+                "Don't give up, $username! Review the material carefully and try again. Practice makes perfect!"
             )
         }
 
@@ -62,7 +67,7 @@ class Quiz_result : AppCompatActivity() {
         // Set retake button click listener
         retakeButton.setOnClickListener {
            val intent=Intent(this,Quiz::class.java)
-
+            intent.putExtra("USERNAME", username)
             startActivity(intent) // Start Quiz activity from new activity means previously done work is cleared
             finish() // Finish QuizResult activity and remove it from the back stack
         }

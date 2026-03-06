@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
             BmiInputActivity::class.java,
             Calculator::class.java,
             Welcome::class.java,
-            Quiz::class.java
+            SplashActivity::class.java
         )
 
         val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, screenNames)
