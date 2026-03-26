@@ -7,8 +7,11 @@ import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.enableEdgeToEdge
@@ -16,6 +19,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -44,6 +48,8 @@ class Contact : AppCompatActivity() {
     
     private var editingContact: ContactModel? = null
     private var currentImagePath: String? = null
+    private var isGridView = false
+    private var filteredList = mutableListOf<ContactModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,6 +63,7 @@ class Contact : AppCompatActivity() {
             insets
         }
 
+        setSupportActionBar(binding.toolbar)
         setupRecyclerView()
         setupClickListeners()
         loadContacts()
@@ -82,6 +89,81 @@ class Contact : AppCompatActivity() {
         binding.cancelBtn.setOnClickListener { showList() }
         binding.saveBtn.setOnClickListener { saveContact() }
         binding.addPhotoBtn.setOnClickListener { openImagePicker() }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.contact_menu, menu)
+        
+        val searchItem = menu?.findItem(R.id.action_search)
+        val searchView = searchItem?.actionView as? SearchView
+        searchView?.apply {
+            setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+                override fun onQueryTextSubmit(query: String?) = false
+                override fun onQueryTextChange(newText: String?): Boolean {
+                    filterContacts(newText ?: "")
+                    return true
+                }
+            })
+            
+            // Fix search text color to BLACK
+            try {
+                val searchSrcText = this.findViewById<android.widget.EditText>(androidx.appcompat.R.id.search_src_text)
+                searchSrcText?.apply {
+                    setTextColor(android.graphics.Color.BLACK)
+                    setHintTextColor(android.graphics.Color.GRAY)
+                    textSize = 14f
+                }
+                
+                val searchPlate = this.findViewById<View>(androidx.appcompat.R.id.search_plate)
+                searchPlate?.setBackgroundColor(android.graphics.Color.WHITE)
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }
+        
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_grid_view -> {
+                isGridView = true
+                binding.recyclerView.layoutManager = GridLayoutManager(this, 2)
+                binding.recyclerView.adapter = adapter
+                adapter.submitList(filteredList.toList())
+                true
+            }
+            R.id.action_list_view -> {
+                isGridView = false
+                binding.recyclerView.layoutManager = LinearLayoutManager(this)
+                binding.recyclerView.adapter = adapter
+                adapter.submitList(filteredList.toList())
+                true
+            }
+            R.id.action_sort_az -> {
+                filteredList.sortBy { it.name }
+                adapter.submitList(filteredList.toList())
+                true
+            }
+            R.id.action_sort_za -> {
+                filteredList.sortByDescending { it.name }
+                adapter.submitList(filteredList.toList())
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    private fun filterContacts(query: String) {
+        filteredList = if (query.isEmpty()) {
+            contactList.sortedBy { it.name }.toMutableList()
+        } else {
+            contactList.filter {
+                it.name.contains(query, ignoreCase = true) ||
+                it.phone.contains(query, ignoreCase = true)
+            }.sortedBy { it.name }.toMutableList()
+        }
+        adapter.submitList(filteredList.toList())
     }
 
     private fun showForm(contact: ContactModel?) {
@@ -183,7 +265,8 @@ class Contact : AppCompatActivity() {
     }
 
     private fun refreshList() {
-        adapter.submitList(contactList.toList().sortedBy { it.name })
+        filteredList = contactList.sortedBy { it.name }.toMutableList()
+        adapter.submitList(filteredList.toList())
         binding.emptyStateText.visibility = if (contactList.isEmpty()) View.VISIBLE else View.GONE
     }
 

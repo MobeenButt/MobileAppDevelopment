@@ -1,87 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#FFFFFF"
     android:layout_margin="8dp"
-    android:background="@drawable/contact_item_background"
-    android:padding="12dp">
+    android:padding="8dp">
 
-    <ImageView
-        android:id="@+id/contactGridImage"
-        android:layout_width="0dp"
-        android:layout_height="120dp"
-        android:layout_marginBottom="8dp"
-        android:contentDescription="@string/name"
-        android:scaleType="centerCrop"
-        android:src="@drawable/ic_contact_placeholder"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp">
+
+        <ImageView
+            android:id="@+id/contactGridImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/name"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_contact_placeholder" />
+    </FrameLayout>
 
     <TextView
         android:id="@+id/contactGridName"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:ellipsize="end"
         android:fontFamily="sans-serif-medium"
-        android:maxLines="1"
+        android:maxLines="2"
         android:text="John Doe"
-        android:textColor="@color/text_primary"
+        android:textColor="#000000"
         android:textSize="14sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/contactGridImage" />
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/contactGridPhone"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="8dp"
         android:ellipsize="end"
         android:fontFamily="sans-serif"
         android:maxLines="1"
         android:text="+1234567890"
-        android:textColor="@color/text_secondary"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/contactGridName" />
+        android:textColor="#666666"
+        android:textSize="12sp" />
 
-    <ImageButton
-        android:id="@+id/editButtonGrid"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="4dp"
-        android:background="?attr/selectableItemBackground"
-        android:contentDescription="@string/edit_contact"
-        android:padding="6dp"
-        android:scaleType="centerInside"
-        android:src="@android:drawable/ic_menu_edit"
-        app:layout_constraintEnd_toStartOf="@id/deleteButtonGrid"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/contactGridPhone"
-        app:tint="#2196F3" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:gravity="center">
 
-    <ImageButton
-        android:id="@+id/deleteButtonGrid"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginStart="4dp"
-        android:background="?attr/selectableItemBackground"
-        android:contentDescription="@string/delete_contact"
-        android:padding="6dp"
-        android:scaleType="centerInside"
-        android:src="@android:drawable/ic_menu_delete"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/editButtonGrid"
-        app:layout_constraintTop_toBottomOf="@id/contactGridPhone"
-        app:tint="#F44336" />
+        <ImageButton
+            android:id="@+id/editButtonGrid"
+            android:layout_width="0dp"
+            android:layout_height="36dp"
+            android:layout_weight="1"
+            android:layout_marginEnd="4dp"
+            android:background="?attr/selectableItemBackground"
+            android:contentDescription="@string/edit_contact"
+            android:padding="8dp"
+            android:scaleType="centerInside"
+            android:src="@android:drawable/ic_menu_edit"
+            android:tint="#2196F3" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageButton
+            android:id="@+id/deleteButtonGrid"
+            android:layout_width="0dp"
+            android:layout_height="36dp"
+            android:layout_weight="1"
+            android:layout_marginStart="4dp"
+            android:background="?attr/selectableItemBackground"
+            android:contentDescription="@string/delete_contact"
+            android:padding="8dp"
+            android:scaleType="centerInside"
+            android:src="@android:drawable/ic_menu_delete"
+            android:tint="#F44336" />
+    </LinearLayout>
+</LinearLayout>
 
