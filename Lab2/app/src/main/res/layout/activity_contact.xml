@@ -30,7 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/no_contacts"
-            android:textColor="#666666"
+            android:textColor="#000000"
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -94,14 +94,18 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:hint="@string/name"
-                app:boxBackgroundColor="#F5F5F5">
+                android:textColorHint="#999999"
+                app:boxBackgroundColor="#F5F5F5"
+                app:boxStrokeColor="#2196F3"
+                app:hintTextColor="#999999">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/nameInput"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPersonName"
-                    android:textColor="#000000" />
+                    android:textColor="#000000"
+                    android:textColorHint="#999999" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -109,14 +113,18 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:hint="@string/phone"
-                app:boxBackgroundColor="#F5F5F5">
+                android:textColorHint="#999999"
+                app:boxBackgroundColor="#F5F5F5"
+                app:boxStrokeColor="#2196F3"
+                app:hintTextColor="#999999">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/phoneInput"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="phone"
-                    android:textColor="#000000" />
+                    android:textColor="#000000"
+                    android:textColorHint="#999999" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.button.MaterialButton
@@ -125,6 +133,8 @@
                 android:layout_height="56dp"
                 android:layout_marginTop="32dp"
                 android:text="@string/save"
+                android:textColor="#FFFFFF"
+                app:backgroundTint="#2196F3"
                 app:cornerRadius="8dp" />
 
             <com.google.android.material.button.MaterialButton
@@ -134,7 +144,10 @@
                 android:layout_height="56dp"
                 android:layout_marginTop="8dp"
                 android:text="@string/cancel"
-                app:cornerRadius="8dp" />
+                android:textColor="#000000"
+                app:cornerRadius="8dp"
+                app:strokeColor="#2196F3"
+                app:strokeWidth="2dp" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

@@ -82,6 +82,7 @@ class Contact : AppCompatActivity() {
     private fun setupRecyclerView() {
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
         binding.recyclerView.adapter = adapter
+        binding.recyclerView.setPadding(8, 8, 8, 8)
     }
 
     private fun setupClickListeners() {
@@ -96,6 +97,7 @@ class Contact : AppCompatActivity() {
         
         val searchItem = menu?.findItem(R.id.action_search)
         val searchView = searchItem?.actionView as? SearchView
+        
         searchView?.apply {
             setOnQueryTextListener(object : SearchView.OnQueryTextListener {
                 override fun onQueryTextSubmit(query: String?) = false
@@ -105,20 +107,14 @@ class Contact : AppCompatActivity() {
                 }
             })
             
-            // Fix search text color to BLACK
-            try {
-                val searchSrcText = this.findViewById<android.widget.EditText>(androidx.appcompat.R.id.search_src_text)
-                searchSrcText?.apply {
-                    setTextColor(android.graphics.Color.BLACK)
-                    setHintTextColor(android.graphics.Color.GRAY)
-                    textSize = 14f
-                }
-                
-                val searchPlate = this.findViewById<View>(androidx.appcompat.R.id.search_plate)
-                searchPlate?.setBackgroundColor(android.graphics.Color.WHITE)
-            } catch (e: Exception) {
-                e.printStackTrace()
-            }
+            // Style SearchView text to BLACK
+            val editText = this.findViewById<android.widget.EditText>(androidx.appcompat.R.id.search_src_text)
+            editText?.setTextColor(android.graphics.Color.BLACK)
+            editText?.setHintTextColor(android.graphics.Color.GRAY)
+            editText?.textSize = 15f
+            
+            val searchPlate = this.findViewById<View>(androidx.appcompat.R.id.search_plate)
+            searchPlate?.setBackgroundColor(android.graphics.Color.WHITE)
         }
         
         return true
@@ -128,7 +124,9 @@ class Contact : AppCompatActivity() {
         return when (item.itemId) {
             R.id.action_grid_view -> {
                 isGridView = true
-                binding.recyclerView.layoutManager = GridLayoutManager(this, 2)
+                val gridLayout = GridLayoutManager(this, 2)
+                binding.recyclerView.layoutManager = gridLayout
+                binding.recyclerView.setPadding(8, 8, 8, 8)
                 binding.recyclerView.adapter = adapter
                 adapter.submitList(filteredList.toList())
                 true
@@ -136,6 +134,7 @@ class Contact : AppCompatActivity() {
             R.id.action_list_view -> {
                 isGridView = false
                 binding.recyclerView.layoutManager = LinearLayoutManager(this)
+                binding.recyclerView.setPadding(8, 8, 8, 8)
                 binding.recyclerView.adapter = adapter
                 adapter.submitList(filteredList.toList())
                 true

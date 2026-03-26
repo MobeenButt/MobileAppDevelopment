@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
+    android:background="#FFFFFF"
     android:padding="16dp"
     tools:context=".AddEditContactActivity">
 
@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-medium"
         android:text="@string/add_contact"
-        android:textColor="@color/text_primary"
+        android:textColor="#000000"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -52,10 +52,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:hint="@string/name"
-        android:textColorHint="@color/text_secondary"
-        app:boxBackgroundColor="@color/surface"
-        app:boxStrokeColor="@color/electric_cyan"
-        app:hintTextColor="@color/text_secondary"
+        android:textColorHint="#999999"
+        app:boxBackgroundColor="#F5F5F5"
+        app:boxStrokeColor="#2196F3"
+        app:hintTextColor="#999999"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/addPhotoBtn">
@@ -66,8 +66,8 @@
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif"
             android:inputType="text"
-            android:textColor="@color/text_primary"
-            android:textColorHint="@color/text_tertiary" />
+            android:textColor="#000000"
+            android:textColorHint="#999999" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -76,10 +76,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:hint="@string/phone"
-        android:textColorHint="@color/text_secondary"
-        app:boxBackgroundColor="@color/surface"
-        app:boxStrokeColor="@color/electric_cyan"
-        app:hintTextColor="@color/text_secondary"
+        android:textColorHint="#999999"
+        app:boxBackgroundColor="#F5F5F5"
+        app:boxStrokeColor="#2196F3"
+        app:hintTextColor="#999999"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/nameLayout">
@@ -90,8 +90,8 @@
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif"
             android:inputType="phone"
-            android:textColor="@color/text_primary"
-            android:textColorHint="@color/text_tertiary" />
+            android:textColor="#000000"
+            android:textColorHint="#999999" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <LinearLayout
@@ -111,8 +111,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/save"
-            android:textColor="@color/onPrimary"
-            app:backgroundTint="@color/electric_cyan" />
+            android:textColor="#FFFFFF"
+            app:backgroundTint="#2196F3" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/deleteBtn"
@@ -120,11 +120,10 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/cancel"
-            android:textColor="@color/text_primary"
-            app:backgroundTint="@color/surface"
-            app:strokeColor="@color/electric_cyan"
+            android:textColor="#000000"
+            app:backgroundTint="#F5F5F5"
+            app:strokeColor="#2196F3"
             app:strokeWidth="2dp" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-
