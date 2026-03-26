@@ -17,6 +17,27 @@
     <string name="login_success">Login Successful!</string>
     <string name="invalid_credentials">Invalid Email or Password</string>
 
+    <!-- Contact App Strings -->
+    <string name="contacts_title">Contacts</string>
+    <string name="add_contact">Add Contact</string>
+    <string name="edit_contact">Edit Contact</string>
+    <string name="delete_contact">Delete</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="name">Name</string>
+    <string name="phone">Phone Number</string>
+    <string name="enter_name">Enter contact name</string>
+    <string name="enter_phone">Enter phone number</string>
+    <string name="add_photo">Add Photo</string>
+    <string name="choose_image">Choose Image</string>
+    <string name="no_contacts">No contacts yet. Add one to get started!</string>
+    <string name="search_hint">Search by name or phone</string>
+    <string name="sort_a_z">Sort A-Z</string>
+    <string name="sort_z_a">Sort Z-A</string>
+    <string name="grid_view">Grid View</string>
+    <string name="list_view">List View</string>
+    <string name="contact_deleted">Contact deleted</string>
+
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
         volutpat, dolor id interdum ullamcorper, risus dolor egestas lectus, sit amet mattis purus

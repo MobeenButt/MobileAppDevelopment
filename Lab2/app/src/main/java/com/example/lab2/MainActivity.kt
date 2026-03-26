@@ -19,7 +19,9 @@ class MainActivity : AppCompatActivity() {
             "BMI Calculator",
             "Calculator",
             "Welcome Screen",
-            "Quiz"
+            "Quiz",
+            "Contact App"
+//            "Shopping Cart"
         )
 
         //also add name of file :: class.java here
@@ -30,7 +32,10 @@ class MainActivity : AppCompatActivity() {
             BmiInputActivity::class.java,
             Calculator::class.java,
             Welcome::class.java,
-            SplashActivity::class.java
+//            SplashActivity::class.java,
+            Quiz::class.java,
+            Contact::class.java
+//            CartActivity::class.java
         )
 
         val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, screenNames)
